@@ -13,8 +13,8 @@ const MenuContainerTop : React.FC = ()=>{
                 <TextoDestaqueTrib textoDes='Livraria BrunoPBrito31'/>
                 <ul>
                     <li><a href="https://api.whatsapp.com/send?phone=+5571992038969&text=Ola%20Bruno%20Vim%20pelo%20seu%20site%20feito%20em%20react!" target="_blank"><WhatsApp/></a></li>
-                    <li><a href="https://www.linkedin.com/in/brunopbrito3108/"><LinkedIn/></a></li>
-                    <li><a href="https://github.com/brunopbrito31"><GitHub/></a></li>
+                    <li><a href="https://www.linkedin.com/in/brunopbrito3108/" target="_blank"><LinkedIn/></a></li>
+                    <li><a href="https://github.com/brunopbrito31" target="_blank"><GitHub/></a></li>
                 </ul>
             </div>
             <div className="area-pesquisa">

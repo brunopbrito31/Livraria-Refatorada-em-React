@@ -23,3 +23,12 @@ export const Redes = styled.div`
     }
 
 `
+
+export const CubesIco = styled.div`
+    height: 100%;
+    width: 100%;
+    .cubes-ico{
+        height:100%;
+        width:100%;
+    }
+`

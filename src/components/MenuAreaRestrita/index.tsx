@@ -5,10 +5,13 @@ import { MenuARes } from './style';
 const MenuAreaRestrita : React.FC = ()=>{
     return(
         <MenuARes>
-            <Link to='/dashboard' className='home'>DashBoard</Link>
+            <ul className="bo-top">
+                <Link to='/dashboard' className='home'>DashBoard</Link>
+                <Link to='/sair' className='home'>Sair</Link>
+            </ul>
             <ul className="op-top">
                 <li>
-                    <Link to="/produtos/cadastro" className="link-p">Cadastrar Produtos</Link>
+                    <Link to="/area-restrita/produtos/cadastro" className="link-p">Cadastrar Produtos</Link>
                 </li>
                 <li>
                     <Link to="" className="link-p">Verificar Contatos</Link>

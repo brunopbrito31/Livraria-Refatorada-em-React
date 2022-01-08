@@ -56,6 +56,10 @@ export const PgLg = styled.div`
                     font-size: 25px;
                     background-color:darkgreen;
                 }
+
+                &:hover{
+                    cursor: pointer;
+                }
             }
         }
     }
