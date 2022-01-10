@@ -32,3 +32,12 @@ export const CubesIco = styled.div`
         width:100%;
     }
 `
+
+export const BarsIco = styled.div`
+    height: 100%;
+    width: 100%;
+    .bars-ico{
+        height: 100%;
+        width: 100%;
+    }
+`

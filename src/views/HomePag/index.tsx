@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import CardProduto from '../../components/CardProduto';
+import FooterPag from '../../components/FooterPag';
 import HeaderLiv from '../../components/HeaderLiv';
 import { api } from '../../services/api';
 import { Home } from './style';
@@ -25,9 +26,10 @@ const HomePag : React.FC = ()=>{
     
     useEffect(()=>{
         api.get('products').then(response =>{
+            setIsLoad(true)
             console.log(response);
             setData(response.data)
-        })
+        }).finally(() => setIsLoad(false));
     })
 
     return(
@@ -35,15 +37,19 @@ const HomePag : React.FC = ()=>{
             <HeaderLiv />
            
             <div className="area-cards">
-                { data.map((el)=>{
-                    return  < CardProduto
-                              id = {el.id}
-                              title = {el.title}
-                              price = {el.price}
-                              rating = {el.rating}
-                              imgUrl = {el.imgUrl}/>
-                })}
+                {isLoad ? ( ()=>{return <p>Carregando...</p>} ): (
+                     data.map((el)=>{
+                        return  < CardProduto
+                                  id = {el.id}
+                                  title = {el.title}
+                                  price = {el.price}
+                                  rating = {el.rating}
+                                  imgUrl = {el.imgUrl}/>
+                    })
+                )}
             </div>
+
+            <FooterPag />
 
         </Home>
     )

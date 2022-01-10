@@ -1,9 +1,9 @@
 import React, { FormEvent, useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
-import FooterAreaRestrita from '../../components/FooterAreaRestrita';
-import InputTextPers from '../../components/InputTextPers';
-import MenuAreaRestrita from '../../components/MenuAreaRestrita';
-import { api } from '../../services/api';
+import FooterAreaRestrita from '../../../components/FooterAreaRestrita';
+import InputTextPers from '../../../components/InputTextPers';
+import MenuAreaRestrita from '../../../components/MenuAreaRestrita';
+import { api } from '../../../services/api';
 import { CdProp } from './style';
 
 interface ProductModel{
@@ -16,16 +16,25 @@ interface ProductModel{
     discount?:number;
 }
 
+interface CategoryModel{
+    id: number
+    name: string
+}
+
 
 const CadProPag: React.FC = ()=>{
 
     const[isLoad, setIsLoad] = useState(false);
     const[data, setData] = useState({} as ProductModel);
+    const[path, setPath] = useState('products');
+    const[dataAux, setDataAux] = useState<CategoryModel[]>([]);
+    const[selCat, setSelCat] = useState(false);
 
     const goSubmit = useCallback((e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        api.post('products',data,{headers: {'Authorization':'Bearer '+localStorage.getItem('chave-mestra-br')}}).then( response =>{
+        api.post(path,data,{headers: {'Authorization':'Bearer '+localStorage.getItem('chave-mestra-br')}}).then( response =>{
             if(response.status === 201){
+                console.log(response)
                 // setIsLoad(true);
                 toast.success('Cadastro realizado com sucesso!',{
                     hideProgressBar: false,
@@ -36,7 +45,24 @@ const CadProPag: React.FC = ()=>{
         }).catch(error => toast.error('Houve um error: ' + error.message,{
             hideProgressBar: false
         }));
-    },[data]);
+    },[data,path]);
+
+    if(selCat){
+        api.get('categories').then(response =>{
+            console.log(response);
+            setDataAux(response.data)
+        }).catch(error => setDataAux([]))
+    }
+
+    function goSubmitAux (){
+        setSelCat(!selCat);
+        return 1;
+    }
+
+    function goPath ( value: string){
+        setPath(value);
+        return 1;
+    }
 
     return(
         <CdProp>
@@ -71,6 +97,14 @@ const CadProPag: React.FC = ()=>{
                     <div className="inp-ps" onChange={ (e: any) => setData({...data,discount: e.target.value }) }>
                         <InputTextPers plac="Desconto" typ="number"/>
                     </div>
+
+                    <div className="inp-ps" >
+                        <select onClick={goSubmitAux} name="cate" onChange={ (e: any) => setPath(`categories/${e.target.value}`) }>
+                            <option disabled selected>Selecione uma Categoria</option>
+                            {dataAux ? dataAux.map((il) => {return <option value={il.id} >{il.name}</option>}) : 'null'}
+                        </select>
+                    </div>
+                    Valor de Path: {path}
                     
                     <div className="inp-ps">
                         <input type="submit" value="Cadastrar" className="inp-sub"/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faBookReader, faFunnelDollar, faStar, faStarHalf, faSearch, faCubes, faChartLine, faGlobe} from '@fortawesome/free-solid-svg-icons'
-import { CubesIco, EstCheia, EstMetade, Redes } from './style';
+import { faCoffee, faBookReader, faFunnelDollar, faStar, faStarHalf, faSearch, faCubes, faChartLine, faGlobe, faBars} from '@fortawesome/free-solid-svg-icons'
+import { BarsIco, CubesIco, EstCheia, EstMetade, Redes } from './style';
 import { faGitSquare, faLinkedin, faWhatsappSquare } from '@fortawesome/free-brands-svg-icons';
 
 export const IconeLeitorLivro : React.FC = ()=>{
@@ -89,6 +89,14 @@ export const Globe: React.FC = ()=>{
         <CubesIco>
             <FontAwesomeIcon className="cubes-ico" icon={faGlobe} />
         </CubesIco>
+    )
+}
+
+export const BarsMenu : React.FC = ()=>{
+    return(
+        <BarsIco>
+            <FontAwesomeIcon className="bars-ico" icon={faBars} />
+        </BarsIco>
     )
 }
 

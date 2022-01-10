@@ -27,8 +27,6 @@ const ProdutoDet : React.FC = () => {
         })
     })
 
-
-
     return(
         <div>
             <h1>Pagina de detalhe de produto</h1> 
