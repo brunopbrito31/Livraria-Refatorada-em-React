@@ -18,7 +18,7 @@ interface ProductModel{
 const HomePag : React.FC = ()=>{
 
     const[data, setData] = useState<ProductModel[]>([]);
-    const[isLoad, setIsLoad] = useState(false);
+    const[isLoad, setIsLoad] = useState(true);
     const[chamada, setChamada] = useState(false);
     const token = localStorage.getItem('chave-mestra-br');
     // const token = 'Bearer '+localStorage.getItem('chave-mestra-br');
@@ -26,7 +26,7 @@ const HomePag : React.FC = ()=>{
     
     useEffect(()=>{
         api.get('products').then(response =>{
-            setIsLoad(true)
+            // setIsLoad(true);
             console.log(response);
             setData(response.data)
         }).finally(() => setIsLoad(false));
@@ -35,9 +35,11 @@ const HomePag : React.FC = ()=>{
     return(
         <Home>
             <HeaderLiv />
+
+            {/* <section></section> */}
            
             <div className="area-cards">
-                {isLoad ? ( ()=>{return <p>Carregando...</p>} ): (
+                {isLoad ? ( [1,2,3,4].map(() =>  <CardProduto loading={true} /> )): (
                      data.map((el)=>{
                         return  < CardProduto
                                   id = {el.id}

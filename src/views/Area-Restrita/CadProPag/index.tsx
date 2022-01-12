@@ -58,12 +58,7 @@ const CadProPag: React.FC = ()=>{
         setSelCat(!selCat);
         return 1;
     }
-
-    function goPath ( value: string){
-        setPath(value);
-        return 1;
-    }
-
+    
     return(
         <CdProp>
             <MenuAreaRestrita />
@@ -99,12 +94,11 @@ const CadProPag: React.FC = ()=>{
                     </div>
 
                     <div className="inp-ps" >
-                        <select onClick={goSubmitAux} name="cate" onChange={ (e: any) => setPath(`categories/${e.target.value}`) }>
+                        <select onClick={goSubmitAux} name="cate" onChange={ (e: any) => setPath(`categories/${e.target.value}`) } className="inp-sel">
                             <option disabled selected>Selecione uma Categoria</option>
                             {dataAux ? dataAux.map((il) => {return <option value={il.id} >{il.name}</option>}) : 'null'}
                         </select>
                     </div>
-                    Valor de Path: {path}
                     
                     <div className="inp-ps">
                         <input type="submit" value="Cadastrar" className="inp-sub"/>

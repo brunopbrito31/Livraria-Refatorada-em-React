@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { EstrelaCheia } from '../FontAweSomeIcones';
+import Loader from '../Loader';
 import { CardPro } from './style';
 
 interface ProductModel{
@@ -11,6 +12,7 @@ interface ProductModel{
     price?:number;
     rating?:number;
     discount?:number;
+    loading?:boolean;
 }
 
 function renderizarEstrelas(nume: number){
@@ -23,7 +25,8 @@ const CardProduto: React.FC<ProductModel> = (props)=>{
 
     return(
         <CardPro>
-            <Link to={props.id ? `produtos/${props.id}` : 'sem-link'}>
+            {!props.loading?(
+                <Link to={props.id ? `produtos/${props.id}` : 'sem-link'}>
                 {props.discount? <div>{props.discount * 100} % de desconto</div> : ''}
                 <img src={props.imgUrl ? props.imgUrl : "https://th.bing.com/th/id/OIP.duMffoTt9BtwEl5gBRpwKgHaEi?pid=ImgDet&rs=1"} />
                 <div className="card-nome">
@@ -36,6 +39,10 @@ const CardProduto: React.FC<ProductModel> = (props)=>{
                     {props.rating ? renderizarEstrelas(props.rating) : 'Sem Avaliações'}
                 </div>
             </Link>
+            ):(
+                <Loader />
+            )}
+            
         </CardPro>
     )
 }

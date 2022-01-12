@@ -35,6 +35,15 @@ export const CdProp = styled.div`
                     cursor: pointer;
                 }
             }
+            .inp-sel{
+                border-radius: 7px;               
+                text-align:center;
+                width:100%;
+                width:100%;
+                height:35px;
+                font-size: 2em;
+                border: 2px solid gold;
+            }
         }
 
         .form-cadas{

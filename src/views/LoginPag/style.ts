@@ -63,4 +63,21 @@ export const PgLg = styled.div`
             }
         }
     }
+
+    .carregando{
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        background-color:black;
+        opacity: 0.65;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h1{
+            color: white;
+            font-size: 36px;
+            font-family: roboto, arial, helvetica;
+        }
+    }
 `

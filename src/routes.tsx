@@ -9,6 +9,7 @@ import DashPag from './views/DashPag';
 import HomePag from './views/HomePag';
 import LoginPag from './views/LoginPag';
 import ProdutoDet from './views/ProdutoDet';
+import PageNotFound from './views/PageNotFound';
 
 const Rotas: React.FC = ()=>{
     return(
@@ -23,6 +24,7 @@ const Rotas: React.FC = ()=>{
                 <Route path="/area-restrita/produtos/cadastro" element={<PrivateRoute><CadProPag/></PrivateRoute>}/>
                 <Route path="/area-restrita/produtos" element={<PrivateRoute><ProdutosAreResPag/></PrivateRoute>}/>
                 <Route path="/sair" element={<PrivateRoute><Deslogar/></PrivateRoute>}/>
+                <Route path="*"element={<PageNotFound/>} />
             </Routes>
         </BrowserRouter>
     )
