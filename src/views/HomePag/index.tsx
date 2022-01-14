@@ -20,6 +20,7 @@ const HomePag : React.FC = ()=>{
     const[data, setData] = useState<ProductModel[]>([]);
     const[isLoad, setIsLoad] = useState(true);
     const[chamada, setChamada] = useState(false);
+    const[stateCall, setStateCall] = useState(false);
     const token = localStorage.getItem('chave-mestra-br');
     // const token = 'Bearer '+localStorage.getItem('chave-mestra-br');
 
@@ -30,7 +31,7 @@ const HomePag : React.FC = ()=>{
             console.log(response);
             setData(response.data)
         }).finally(() => setIsLoad(false));
-    })
+    },[stateCall])
 
     return(
         <Home>

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CardProduto from '../../components/CardProduto';
+import FooterPag from '../../components/FooterPag';
+import HeaderLiv from '../../components/HeaderLiv';
 import { api } from '../../services/api';
+import { CatDet } from './style';
 
 const CategoriaDet : React.FC = () => {
 
@@ -21,25 +25,32 @@ const CategoriaDet : React.FC = () => {
     }
 
     const[data, setData] = useState<Category>({} as Category);
+    const{ id } = useParams();
 
     useEffect(()=>{
         api.get(`categories/${id}`).then(response =>{
-            console.log(response);
             setData(response.data)
         }).catch(err =>{console.log(err)})
-    })
-
-    const{ id } = useParams();
+    },[id])
 
     return(
-        <div>
-            Página de detalhe da categoria: {data.name} <br />
+        <CatDet>
+            <HeaderLiv />
+                <div className="categ-main">
+                    Página de detalhe da categoria: {data.name} <br />
 
-            Lista de Livros: <br />
-            <ul>
-                {data.products ? data.products.map((it) => {return <li>Livro:{it.title}</li>}) : ()=> {return <p>Não há livros na categoria</p>} }
-            </ul>
-        </div>
+                    Lista de Livros: <br />
+                    <ul>
+                        {data.products ? data.products.map((it) => {return < CardProduto
+                                  id = {it.id}
+                                  title = {it.title}
+                                  price = {it.price}
+                                  rating = {it.rating}
+                                  imgUrl = {it.imgUrl} /> }):()=> {return <p>Não há livros na categoria</p>} }
+                    </ul>
+                </div>
+            <FooterPag />
+        </CatDet>
     )
 }
 

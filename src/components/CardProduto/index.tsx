@@ -26,7 +26,7 @@ const CardProduto: React.FC<ProductModel> = (props)=>{
     return(
         <CardPro>
             {!props.loading?(
-                <Link to={props.id ? `produtos/${props.id}` : 'sem-link'}>
+                <Link to={props.id ? `/produtos/${props.id}` : 'sem-link'}>
                 {props.discount? <div>{props.discount * 100} % de desconto</div> : ''}
                 <img src={props.imgUrl ? props.imgUrl : "https://th.bing.com/th/id/OIP.duMffoTt9BtwEl5gBRpwKgHaEi?pid=ImgDet&rs=1"} />
                 <div className="card-nome">

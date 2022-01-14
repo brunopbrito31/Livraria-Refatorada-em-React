@@ -4,6 +4,12 @@ export const SubMenu = styled.div`
     background-color: green;
     padding-top:10px;
     padding-bottom:2px;
+    display: flex;
+    justify-content:center;
+
+    .men-bot{
+        position: relative;
+    }
 
     .menu-cat{
         position: absolute;
@@ -48,7 +54,7 @@ export const SubMenu = styled.div`
         display: flex;
         width: 160px;
         align-items: center;
-        border-radius:0px 8px 0 0;
+        border-radius:8px 8px 0 0;
         background: linear-gradient(to top left,#ccffcc 0%,#669999 100%);
         
         div{
@@ -57,6 +63,22 @@ export const SubMenu = styled.div`
         &:hover {
             cursor: pointer;
             opacity: 0.6;
+        }
+    }
+
+    .area-categ{
+        ul{
+    
+            display: flex;
+            list-style-type: none;
+            li{
+                margin-left: 45px;
+                margin-right: 45px;
+                font-size: 2em;
+                a{
+                    text-decoration: none;
+                }
+            }
         }
     }
 `

@@ -15,13 +15,14 @@ const SubMenuContainer : React.FC = ()=>{
     const [menAb, setmenAb] = useState(false);
     const [classMen, setClassMen] = useState("menu-cat menu-cat-invis");
     const [data, setData] = useState<CategoryModel[]>([]);
+    const[stateCall, setStateCall] = useState(false);
 
-    if(menAb){
+    useEffect(()=>{
         api.get('categories').then(response =>{
             console.log(response);
             setData(response.data)
-        }).catch(error => setData([]))
-    }
+        }).catch(error => setData([]));
+    },[stateCall])
 
 
     function mostrarFecharMenu (){
@@ -35,15 +36,24 @@ const SubMenuContainer : React.FC = ()=>{
 
     return(
         <SubMenu>
-            <div onClick={mostrarFecharMenu} className="btcat">
-                <BarsMenu />
-                Todas as Categorias
-            </div>
+            <div className="men-bot">
+                <div onClick={mostrarFecharMenu} className="btcat">
+                    <BarsMenu />
+                    Todas as Categorias
+                </div>
 
-            <div className={classMen}>
+                <div className={classMen}>
+                    <ul>
+                        {data.length > 0? (data.map((it) => {
+                            return <li className="item-men"><Link to={`/categorias/${it.id}`} >{it.name}</Link></li>
+                        })): ()=>{return <li>Sem Categorias</li>}}
+                    </ul>
+                </div>
+            </div>
+            <div className="area-categ">
                 <ul>
                     {data.length > 0? (data.map((it) => {
-                        return <li className="item-men"><Link to={`categorias/${it.id}`} >{it.name}</Link></li>
+                        return <li className="item-men"><Link to={`/categorias/${it.id}`} >{it.name}</Link></li>
                     })): ()=>{return <li>Sem Categorias</li>}}
                 </ul>
             </div>

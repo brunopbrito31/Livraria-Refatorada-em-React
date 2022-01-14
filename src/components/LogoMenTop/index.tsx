@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AreaLogo } from "./style";
 
 interface LogoTipo{
@@ -9,7 +10,9 @@ interface LogoTipo{
 const LogoMenTop : React.FC<LogoTipo> = (props)=>{
     return(
         <AreaLogo>
-            {props.caminho ? <img src={props.caminho} /> : 'Sem Imagem'}
+            <Link to="/">
+                {props.caminho ? <img src={props.caminho} /> : 'Sem Imagem'}
+            </Link>
         </AreaLogo>
     )
 }

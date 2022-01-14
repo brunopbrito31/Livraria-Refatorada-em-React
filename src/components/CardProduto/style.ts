@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const CardPro = styled.div`
 
     background-color:whitesmoke;
-    width: calc(100%/4 - 3%);
+    width: calc(100%/4 - 4%);
     height: 400px;
     text-align:center;
     box-shadow: 2px 2px 5px;
-    margin-bottom: 28px;
+    margin: 2%;
     
     img{
         width: 100%;
