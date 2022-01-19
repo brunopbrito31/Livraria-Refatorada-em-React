@@ -11,6 +11,26 @@ export const Home = styled.div`
         display: flex;
         flex-wrap: wrap;
         justify-content:space-around;
+
+        .are-botoes{
+            width:100%;
+            display: flex;
+            align-items: center;
+            justify-content:center;
+            ul{
+                width:60%;
+                display: flex;
+                justify-content:center;
+                list-style: none;
+                li{
+                    width:40%;
+                    margin: 10px;
+                    button{
+                        width:70%;
+                    }
+                }
+            }
+        }
     }
 
 `

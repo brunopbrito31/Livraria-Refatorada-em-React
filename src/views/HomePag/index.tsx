@@ -1,4 +1,6 @@
+import { type } from 'os';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ProductModel } from '../../auxiliar-types';
 import CardProduto from '../../components/CardProduto';
 import FooterPag from '../../components/FooterPag';
@@ -10,19 +12,45 @@ const HomePag : React.FC = ()=>{
 
     const[data, setData] = useState<ProductModel[]>([]);
     const[isLoad, setIsLoad] = useState(true);
-    const[chamada, setChamada] = useState(false);
-    const[stateCall, setStateCall] = useState(false);
-    const token = localStorage.getItem('chave-mestra-br');
-    // const token = 'Bearer '+localStorage.getItem('chave-mestra-br');
+    const[pageNo, setPageNo] = useState(0);
+    const[totalEl, setTotalEl] = useState(0);
+    const[qtPages,setQtPages] = useState(0);
+    const qtElPag = 8;
+    const final = [];
 
-    
+    function calcQtPages(qtTot: number, qtEle: number){
+        console.log((qtTot/qtEle))
+        if((qtTot/qtEle)%1 !=0){
+            let valorAux = parseInt((qtTot/qtEle).toString().split('.')[0]);
+            valorAux +=1;
+            setQtPages(valorAux);
+        }else{
+            setQtPages(qtTot/qtEle);
+        }
+    }
+
     useEffect(()=>{
-        api.get('products').then(response =>{
+        api.get('products/total').then(response =>{
+            setTotalEl(response.data);
+            console.log('oi');
+            calcQtPages(totalEl, qtElPag);
+        }).finally();
+    },[])
+
+
+    useEffect(()=>{
+        api.get(`/products?pageNo=${pageNo}&pageSize=${qtElPag}`).then(response =>{
             // setIsLoad(true);
             console.log(response);
-            setData(response.data)
+            setData(response.data);
         }).finally(() => setIsLoad(false));
-    },[stateCall])
+    },[pageNo])
+
+    
+
+    for(let i = 0 ; i < qtPages ; i++){
+        final.push(<li><button onClick={() => setPageNo(i)}>{i+1}</button></li>)
+    }
 
     return(
         <Home>
@@ -43,6 +71,11 @@ const HomePag : React.FC = ()=>{
                                 />
                     })
                 )}
+                
+                <div className="are-botoes">
+                    <ul>{final}</ul>
+                </div>
+
             </div>
 
             <FooterPag />
