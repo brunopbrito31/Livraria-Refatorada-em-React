@@ -32,5 +32,20 @@ export const Barra = styled.div`
             cursor: pointer;
         }
     }
+
+    .men-pes{
+        position: absolute;
+        background-color:rgba(0,255,0,0.7);
+        width: 26.8%;
+        text-align: center;
+    }
+
+    .men-pes-inv{
+        position: absolute;
+        background-color:rgba(0,255,0,0.7);
+        width: 26.8%;
+        display: none;
+        text-align: center;
+    }
     
 `

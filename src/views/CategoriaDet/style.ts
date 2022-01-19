@@ -6,6 +6,7 @@ export const CatDet = styled.div`
     height: 100vh;
     width: 100vw;
     .categ-main{
+        min-height: 80vh;
         flex-grow: 1;
         ul{
             display: flex;

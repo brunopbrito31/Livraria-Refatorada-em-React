@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { ProductModel } from '../../auxiliar-types';
 import CardProduto from '../../components/CardProduto';
 import FooterPag from '../../components/FooterPag';
 import HeaderLiv from '../../components/HeaderLiv';
 import { api } from '../../services/api';
 import { Home } from './style';
-
-interface ProductModel{
-    id?: number;
-    title?: string;
-    description?: string;
-    imgUrl?: string;
-    price?:number;
-    rating?:number;
-    discount?:number;
-}
 
 const HomePag : React.FC = ()=>{
 
@@ -41,13 +32,15 @@ const HomePag : React.FC = ()=>{
            
             <div className="area-cards">
                 {isLoad ? ( [1,2,3,4].map(() =>  <CardProduto loading={true} /> )): (
-                     data.map((el)=>{
+                    data.map((el) =>
+                    {
                         return  < CardProduto
-                                  id = {el.id}
-                                  title = {el.title}
-                                  price = {el.price}
-                                  rating = {el.rating}
-                                  imgUrl = {el.imgUrl}/>
+                                    id = {el.id}
+                                    title = {el.title}
+                                    price = {el.price}
+                                    rating = {el.rating}
+                                    imgUrl = {el.imgUrl}
+                                />
                     })
                 )}
             </div>

@@ -11,6 +11,7 @@ export const ProDeta = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        min-height: 80vh;
         .prod-det-sec1{
             display: flex;
             .prod-det-img{

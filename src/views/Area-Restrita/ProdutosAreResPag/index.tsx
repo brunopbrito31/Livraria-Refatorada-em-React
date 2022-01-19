@@ -11,6 +11,7 @@ const ProdutosAreResPag: React.FC = ()=> {
             <div className="produtos-main">
                 <p>Operações com produtos</p>
                 <Link to="cadastro" className="link-pr">Cadastrar Produto</Link>
+                <Link to="/area-restrita/estoque" className="link-pr">Editar Estoque</Link>
                 <Link to="" className="link-pr">Editar Produto</Link>
                 <Link to="" className="link-pr">Categorias</Link>
             </div>
