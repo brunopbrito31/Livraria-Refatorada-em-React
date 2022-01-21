@@ -38,7 +38,7 @@ export const EstrelaMetadeCheia: React.FC = ()=>{
     )
 }
 
-export const LupaPesquisa: React.FC = ()=>{
+export const SearchIcon: React.FC = ()=>{
     return(
         <FontAwesomeIcon icon={faSearch} />
     )

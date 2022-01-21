@@ -18,7 +18,10 @@ const MenuContainerTop : React.FC = ()=>{
                 </ul>
             </div>
             <div className="area-pesquisa">
-                <SearchBarA />
+                <SearchBarA
+                    pathapi = "products/description?description="
+                    noresultmsg= "Sem Resultados Por Aqui"
+                />
             </div>
         </MenuA>
     )
