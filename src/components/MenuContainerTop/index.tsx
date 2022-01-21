@@ -1,5 +1,5 @@
 import React from "react";
-import BarraPesquisaArr from "../BarraPesquisaArr";
+import SearchBarA from "../SearchBarA";
 import { GitHub, LinkedIn, WhatsApp } from "../FontAweSomeIcones";
 import LogoMenTop from "../LogoMenTop";
 import TextoDestaqueTrib from "../TextoDestaqueTrib";
@@ -18,7 +18,7 @@ const MenuContainerTop : React.FC = ()=>{
                 </ul>
             </div>
             <div className="area-pesquisa">
-                <BarraPesquisaArr />
+                <SearchBarA />
             </div>
         </MenuA>
     )

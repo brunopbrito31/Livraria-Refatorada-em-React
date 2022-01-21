@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Barra = styled.div`
+export const SeaBarA = styled.form`
     width: 30%;
     height: 30px;
 

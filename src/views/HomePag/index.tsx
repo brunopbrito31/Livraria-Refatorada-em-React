@@ -1,6 +1,4 @@
-import { type } from 'os';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ProductModel } from '../../auxiliar-types';
 import CardProduto from '../../components/CardProduto';
 import FooterPag from '../../components/FooterPag';
@@ -32,11 +30,9 @@ const HomePag : React.FC = ()=>{
     useEffect(()=>{
         api.get('products/total').then(response =>{
             setTotalEl(response.data);
-            console.log('oi');
             calcQtPages(totalEl, qtElPag);
         }).finally();
     },[])
-
 
     useEffect(()=>{
         api.get(`/products?pageNo=${pageNo}&pageSize=${qtElPag}`).then(response =>{
@@ -45,8 +41,6 @@ const HomePag : React.FC = ()=>{
             setData(response.data);
         }).finally(() => setIsLoad(false));
     },[pageNo])
-
-    
 
     for(let i = 0 ; i < qtPages ; i++){
         final.push(<li><button onClick={() => setPageNo(i)}>{i+1}</button></li>)

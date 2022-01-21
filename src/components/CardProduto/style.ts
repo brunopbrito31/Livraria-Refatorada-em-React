@@ -22,4 +22,12 @@ export const CardPro = styled.div`
         font-style: italic;
     }
 
+    .card-rating {
+        ul{
+            display:flex;
+            list-style: none;
+            justify-content:center;
+        }
+    }
+
 `
