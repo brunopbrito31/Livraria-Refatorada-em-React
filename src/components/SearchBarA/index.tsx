@@ -30,7 +30,7 @@ const SearchBarA : React.FC<SeaBarModel> = (props)=>{
         return <li><Link to={`/produtos/${il.id}`}>{il.title}</Link></li>
     }
 
-    function NoResultItem (msg?: string | null) {
+    function NoResultItem (msg?: string) {
         return msg ? msg: <li>Sem Resultado</li>
     }
 
