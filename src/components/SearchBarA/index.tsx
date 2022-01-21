@@ -9,13 +9,11 @@ interface SeaBarModel {
     placeholder?: string;
     pathapi?: string;
     noresultmsg?: string;
-    
 }
 
 const SearchBarA : React.FC<SeaBarModel> = (props)=>{
 
     const[filterOfSearch,setFilterOfSearch] = useState('');
-
     const[data, setData] = useState<ProductModel[]>([]);
     const[isVisible, setIsVisible] = useState(false);
 
@@ -45,6 +43,8 @@ const SearchBarA : React.FC<SeaBarModel> = (props)=>{
             <button type="button">
                 <SearchIcon />
             </button>
+
+            {/* Exibithion of Results */}
             <div className={isVisible? "men-pes" : "men-pes-inv"}>
                 {
                     filterOfSearch != '' ? 

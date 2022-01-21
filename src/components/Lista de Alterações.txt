@@ -1,3 +1,5 @@
 Components:
 
 1. Analisar a Lupa (SearchIcon) e determinar a ação do clique no botão (Lembrando que o componente SearchBar é um formulário)
+
+2. Resolver o Responsivo do dashboard e dos cards 

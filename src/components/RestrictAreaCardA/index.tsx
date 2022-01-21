@@ -1,26 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Cubes } from '../FontAweSomeIcones';
-import { CarAreRes } from './style';
+import { ResAreCar } from './style';
 
 interface CardAreRest{
     menstit?:string;
     path?:string;
 }
 
-const CardAreaRestrita: React.FC<CardAreRest> = (props)=>{
+const RestrictAreaCardA: React.FC<CardAreRest> = (props)=>{
     return (
-        <CarAreRes>
+        <ResAreCar>
             <Link to={props.path ? props.path : '/'} className="link-ar">
                 <h2>
                     {props.menstit ? props.menstit: 'Sem Titulo'}
                 </h2>
-                <div className="area-icone">
+                <div className="icon-area">
                     {props.children}
                 </div>
             </Link>
-        </CarAreRes>
+        </ResAreCar>
     )
 }
 
-export default CardAreaRestrita;
+export default RestrictAreaCardA;

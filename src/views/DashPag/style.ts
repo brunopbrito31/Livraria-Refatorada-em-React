@@ -20,6 +20,15 @@ export const DashBoardAreRes = styled.div`
        }
    }
 
+   @media screen and (max-width:700px){
+       height: 100%;
+       .container-main{
+           .area-cards{
+               flex-wrap: wrap;
+           }
+       }
+   }
+
 
 `
 

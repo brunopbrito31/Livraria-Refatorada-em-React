@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CarAreRes = styled.div`
+export const ResAreCar = styled.div`
     width: calc(100%/3 - 7%);
     height: 80%;
     display: flex;
@@ -18,7 +18,7 @@ export const CarAreRes = styled.div`
         h2{
             margin-bottom: 1%;
         }
-        .area-icone{
+        .icon-area{
             height: 100%;
             width: 100%;
         }
@@ -33,6 +33,11 @@ export const CarAreRes = styled.div`
                 color:gold;
             }
         }
+    }
+
+    @media screen and (max-width:700px) {
+        width: 100%;
+        
     }
 
 `
