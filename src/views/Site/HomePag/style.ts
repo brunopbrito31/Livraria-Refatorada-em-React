@@ -7,10 +7,12 @@ export const Home = styled.div`
 
     .area-cards{
         flex-grow: 1;
+        margin: 0 auto;
         margin-top: 2%;
         display: flex;
         flex-wrap: wrap;
         justify-content:space-around;
+        width: 75%;
 
         .are-botoes{
             width:100%;

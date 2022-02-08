@@ -10,3 +10,8 @@ export interface ProductModel{
     discount?:number;
 }
 
+export interface UserModel{
+    login?:string;
+    password?: string;
+}
+

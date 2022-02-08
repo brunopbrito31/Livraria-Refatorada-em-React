@@ -25,25 +25,10 @@ const CardProduto: React.FC<ProductModel> = (props)=>{
     const final = [];
     const[ratingAux, setRatingAux] = useState(0);
     const[halfStar, setHalfStar] = useState(0);
-    // function calcRating(rating: number | undefined) {
-
-    //     if(rating !== undefined){
-    //         if(rating%1 !=0){
-    //             let valorAux = parseInt(rating.toString().split('.')[0]);
-    //             setRatingAux(valorAux);
-    //             setHalfStar(1);
-    //         }else{
-    //             setRatingAux(rating);
-    //         }
-    //     }
-    // }
-
-    // calcRating(props.rating);
 
     for(let i = 0; i < 5; i++){
         final.push( <li><EstrelaCheia /></li>)
     }
-
 
     return(
         <CardPro>

@@ -21,7 +21,7 @@ const DashPag : React.FC = ()=>{
                 <div className="area-cards">
                     {
                         items.map((it)=>{
-                            return <RestrictAreaCardA 
+                            return  <RestrictAreaCardA 
                                         menstit= {it.menstit}
                                         path={it.path}
                                     >

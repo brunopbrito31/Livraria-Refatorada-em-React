@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ProductModel } from '../../auxiliar-types';
-import CardProduto from '../../components/CardProduto';
-import FooterPag from '../../components/FooterPag';
-import HeaderLiv from '../../components/HeaderLiv';
-import { api } from '../../services/api';
+import { ProductModel } from '../../../auxiliar-types';
+import CardProduto from '../../../components/CardProduto';
+import FooterPag from '../../../components/FooterPag';
+import HeaderLiv from '../../../components/HeaderLiv';
+import { api } from '../../../services/api';
 import { Home } from './style';
 
 const HomePag : React.FC = ()=>{
@@ -41,17 +41,15 @@ const HomePag : React.FC = ()=>{
             setData(response.data);
         }).finally(() => setIsLoad(false));
     },[pageNo])
-
+    
     for(let i = 0 ; i < qtPages ; i++){
         final.push(<li><button onClick={() => setPageNo(i)}>{i+1}</button></li>)
     }
-
+    
     return(
         <Home>
             <HeaderLiv />
 
-            {/* <section></section> */}
-           
             <div className="area-cards">
                 {isLoad ? ( [1,2,3,4].map(() =>  <CardProduto loading={true} /> )): (
                     data.map((el) =>

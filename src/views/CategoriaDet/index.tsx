@@ -37,16 +37,17 @@ const CategoriaDet : React.FC = () => {
         <CatDet>
             <HeaderLiv />
                 <div className="categ-main">
-                    Página de detalhe da categoria: {data.name} <br />
-
-                    Lista de Livros: <br />
                     <ul>
-                        {data.products ? data.products.map((it) => {return < CardProduto
-                                  id = {it.id}
-                                  title = {it.title}
-                                  price = {it.price}
-                                  rating = {it.rating}
-                                  imgUrl = {it.imgUrl} /> }):()=> {return <p>Não há livros na categoria</p>} }
+                        {data.products ? data.products.map((it) => 
+                        {return < CardProduto
+                                    id = {it.id}
+                                    title = {it.title}
+                                    price = {it.price}
+                                    rating = {it.rating}
+                                    imgUrl = {it.imgUrl} 
+                                /> }
+                        ):()=> 
+                        {return <p>Não há livros na categoria</p>} }
                     </ul>
                 </div>
             <FooterPag />

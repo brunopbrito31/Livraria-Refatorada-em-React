@@ -6,7 +6,7 @@ import ProdutosAreResPag from './views/Area-Restrita/ProdutosAreResPag';
 import CadProPag from './views/Area-Restrita/CadProPag';
 import CategoriaDet from './views/CategoriaDet';
 import DashPag from './views/DashPag';
-import HomePag from './views/HomePag';
+import HomePag from './views/Site/HomePag';
 import LoginPag from './views/LoginPag';
 import ProdutoDet from './views/ProdutoDet';
 import PageNotFound from './views/PageNotFound';
