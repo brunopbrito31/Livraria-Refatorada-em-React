@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { CategoryModel } from '../../auxiliar-types';
 import CardProduto from '../../components/CardProduto';
 import FooterPag from '../../components/FooterPag';
 import HeaderLiv from '../../components/HeaderLiv';
@@ -8,24 +9,11 @@ import { CatDet } from './style';
 
 const CategoriaDet : React.FC = () => {
 
-    interface ProductModel{
-        id?: number;
-        title?: string;
-        description?: string;
-        imgUrl?: string;
-        price?:number;
-        rating?:number;
-        discount?:number;
-    }
-
-    interface Category{
-        id?: number;
-        name?: string;
-        products: ProductModel[];
-    }
-
-    const[data, setData] = useState<Category>({} as Category);
+    const[data, setData] = useState<CategoryModel>({} as CategoryModel);
     const{ id } = useParams();
+
+    const CardNoBooks =
+    <p>Não há livros na categoria</p>
 
     useEffect(()=>{
         api.get(`categories/${id}`).then(response =>{
@@ -46,8 +34,7 @@ const CategoriaDet : React.FC = () => {
                                     rating = {it.rating}
                                     imgUrl = {it.imgUrl} 
                                 /> }
-                        ):()=> 
-                        {return <p>Não há livros na categoria</p>} }
+                        ): CardNoBooks }
                     </ul>
                 </div>
             <FooterPag />

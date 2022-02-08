@@ -8,6 +8,7 @@ export interface ProductModel{
     price?:number;
     rating?:number;
     discount?:number;
+    loading?:boolean;
 }
 
 export interface UserModel{
@@ -15,3 +16,8 @@ export interface UserModel{
     password?: string;
 }
 
+export interface CategoryModel{
+    id?: number;
+    name?: string;
+    products: ProductModel[];
+}
